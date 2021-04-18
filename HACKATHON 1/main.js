@@ -2,14 +2,7 @@ let puppeteer = require("puppeteer");
 var Tesseract = require('tesseract.js');
 let external = require("./pass.js");
 let passenger = require("./passengerList.js");
-// let fs = require("fs");
 
-// no of videos 
-// views 
-// watch time -> get 
-// list of videos -> [name, duration]
-// initial page data get 
-// handle -> loader
 
 (async function(){
     try {
@@ -179,24 +172,7 @@ let passenger = require("./passengerList.js");
         await newPage.click("button[type='submit']");
 
         // for time: 'span[class="time"]'
-        // for train number: div[class="col-sm-5 col-xs-11 train-heading"]
-
-
-
-       /* 
-        while(times > 0){
-
-            titleArr = await newPage.evaluate(videoTitleArray);
-            
-            times--;
-            if(times > -1 && times < 1){
-                
-            }
-            await newPage.waitForTimeout(5000);
-        }
-        
-        console.table(titleArr);
-        */
+        // for train number: div[class="col-sm-5 col-xs-11 train-heading"
        
 
     } catch (err) {
@@ -204,33 +180,3 @@ let passenger = require("./passengerList.js");
     }
 
 })();
-
-
-/*
-function videoTitleArray(){
-    let elem = document.querySelector('ytd-continuation-item-renderer[class="style-scope ytd-playlist-video-list-renderer"]');
-            let title = [];
-            let duration = [];
-            if(elem != null)
-            { 
-                title = document.querySelectorAll("a[id='video-title']");
-                title[title.length - 1].scrollIntoView();
-                console.log(title.length);
-            }     
-            else{
-                title = document.querySelectorAll("a[id='video-title']");
-                duration = document.querySelectorAll('span.style-scope.ytd-thumbnail-overlay-time-status-renderer');
-                console.log(duration.length);
-                let values = [];
-                for(let i=0; i<title.length; i++){
-                    let time = duration[i].innerText.trim("\n");
-                    values.push({
-                        "Title": title[i].innerText,
-                        "Duration": time
-                    } );
-                }
-                return values;
-            }
-            
-}
-*/
