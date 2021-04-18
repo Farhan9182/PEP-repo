@@ -2,19 +2,16 @@ let puppeteer = require("puppeteer");
 var Tesseract = require('tesseract.js');
 let external = require("./pass.js");
 let passenger = require("./passengerList.js");
-
-
+let source = process.argv[2];
+let destination = process.argv[3];
+let userClass = process.argv[4];
+let userCategory = process.argv[5];
+let userdate = process.argv[6];
 (async function(){
     try {
         let nop = (Object.keys(passenger).length) - 1;
         let objLength = Object.keys(passenger).length;
-        console.log(passenger[1].Name);
-        console.log(passenger[2].Name);
         
-        let mob = "9334814816";
-        let userClass = 4;
-        let userCategory = 0;
-        let userdate = "22/04/2021";
         let browserInstance = await puppeteer.launch({
             headless: false,
             defaultViewport: null,
@@ -63,10 +60,10 @@ let passenger = require("./passengerList.js");
 
         //Fill station details
         
-        await newPage.type('input[aria-controls="pr_id_1_list"]',"PNBE\n",{delay:200});
-        await newPage.type('input[aria-controls="pr_id_2_list"]',"HWH\n",{delay:200});
+        await newPage.type('input[aria-controls="pr_id_1_list"]',source+"\n",{delay:200});
+        await newPage.type('input[aria-controls="pr_id_2_list"]',destination+"\n",{delay:200});
         await newPage.click('span[class="ng-tns-c66-11 ui-dropdown-label ui-inputtext ui-corner-all ng-star-inserted"]');
-        await newPage.waitForTimeout(3000);
+        await newPage.waitForTimeout(1000);
         await newPage.waitForSelector("li[role='option']");
         await newPage.evaluate((userClass)=>{
             let elem1 = document.querySelectorAll("li[role='option']");
@@ -107,9 +104,7 @@ let passenger = require("./passengerList.js");
         
         
         await newPage.waitForSelector('input[placeholder="Passenger Name"]',{waitUntil: 'load', timeout: 0});
-        console.log("Reached Here");
-        console.log(nop);
-        console.log(objLength);
+        
         while(nop > 0){
             await newPage.evaluate(()=>{
                 let elem = document.querySelector('span[class="prenext"]');
@@ -145,36 +140,12 @@ let passenger = require("./passengerList.js");
 
         for(let i =0; i< objLength; i++){
             // input[name-index="0"]
-            await newPage.type("input[name-index='"+i+"']",passenger[i + 1].Name);
+            await newPage.type("input[name-index='"+i+"']",passenger[i + 1].Name,{delay:100});
             await newPage.type("input[age-index='"+i+"']",passenger[i + 1].Age);
             await newPage.type("select[gender-index='"+i+"']",passenger[i + 1].Gender+"/n");
         }
 
-        // for(let i =0; i< objLength; i++){
-        //     await newPage.evaluate((passenger,i)=>{
-        //         let elem = document.querySelectorAll('select[formcontrolname="passengerGender"]');
-        //         elem[i].setAttribute("value",passenger[i + 1].Gender);
-        //     },passenger,i)
-        // }
-
-        // const name = await newPage.$$('input[placeholder="Passenger Name"]');
-        // const age = await newPage.$$('input[placeholder="Age"]');
-        // const gender = await newPage.$$('select[formcontrolname="passengerGender"]');
-        // for(let i =0; i< objLength; i++){
-        //     // console.log(passenger[1].Name);
-        //     await newPage.evaluate((name,age,gender,i)=>{
-        //         name[i].setAttribute("value",passenger[i + 1].Name);
-        //         age[i].setAttribute("value",passenger[i + 1].Age);
-        //         gender[i].setAttribute("value",passenger[i + 1].Gender);
-
-        //     },name,age,gender,i)
-
-        //     //     name[i],passenger[i + 1].Name);
-        //     // await newPage.type(age[i],passenger[i + 1].Age);
-        //     // await newPage.type(gender[i],passenger[i + 1].Gender+"\n");
-        // }
-
-        await newPage.type('input[id="mobileNumber"]',mob);
+        await newPage.type('input[id="mobileNumber"]',external.mob,{delay:200});
         await newPage.type('input[id="aaa1"]',"Hello world");
 
         await newPage.type('input[id="aaa4"]',"800007\n");
@@ -184,10 +155,7 @@ let passenger = require("./passengerList.js");
         let btn = await newPage.$$('div[class="ui-radiobutton-box ui-widget ui-state-default"]');
         await btn[1].click();
         await btn[2].click();
-        // input[placeholder="Passenger Name"]
-        // input[placeholder="Age"]
-        // select[formcontrolname="passengerGender"]
-        // 
+        
         await newPage.click("button[type='submit']");
 
         do{
@@ -218,23 +186,22 @@ let passenger = require("./passengerList.js");
         }while (true);
         // for time: 'span[class="time"]'
         // for train number: div[class="col-sm-5 col-xs-11 train-heading"
-       
+       await newPage.waitForSelector('div[class="bank-type col-xs-12 ng-star-inserted"]',{waitUntil: 'load', timeout: 0});
+       await newPage.click('div[class="bank-type col-xs-12 ng-star-inserted"]');
+       await newPage.waitForSelector('div[class="col-pad col-xs-12 bank-text"]',{waitUntil: 'load', timeout: 0});
+       await newPage.click('div[class="col-pad col-xs-12 bank-text"]');
+       await newPage.click('button[class="btn btn-primary hidden-xs ng-star-inserted"]');
+
+       await newPage.waitForSelector('input[value="upi"]',{waitUntil: 'load', timeout: 0});
+       await newPage.click('input[value="upi"]');
+
+       await newPage.waitForSelector('input[id="upi"]',{waitUntil: 'load', timeout: 0});
+       await newPage.type('input[id="upi"]',external.upi,{delay:200});
+
+       await newPage.click('button[class="btn btn-primary w100 pos-r   "]');
 
     } catch (err) {
         console.log(err);
     }
 
 })();
-
-//getting all the input elements array
-/*
-let name = await newPage.evaluate(()=>{
-    let elem = document.querySelectorAll('input[placeholder="Name"]');
-    return elem;
-})
-
-for(let i=0; i<name.length; i++){
-    //using name[i] as a selector
-    await newPage.type(name[i],value[i]);
-}
-*/
