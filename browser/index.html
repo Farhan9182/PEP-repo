@@ -5,50 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
 <style>
-    
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin:0px;
+    }
     .top{
-        background-color: rgb(255, 255, 255);
-        height: 5vh;
+        background-color: rgb(0, 0, 0);
+        height: 12vh;
         
         display: flex;
         align-items: center;
-        box-sizing: border-box;
+        padding-left: 5rem;
     }
     .bottom{
-        
+        height:85vh;
         margin-top: 4vh;
         box-sizing: border-box;
         background-color: rgb(0, 0, 0);
-        height: 15vh;
         
     }
     .left{
         display: flex;
-        box-sizing: border-box;
-        margin-left: 2%;
-        align-items: center;
+        margin-right: 4rem;
+        border-radius: 0.2rem;
         background-color: rgb(100, 96, 96);
-        height: 90%;
-        width: 60%;
+        height: 60%;
+        width: 14rem;
+        align-items: center;
     }
     .right{
         
+        height: 60%;
+        width: 8rem;
+        background-color: #6d7c7e;
+        border-radius: 0.2rem;
         display: flex;
-        box-sizing: border-box;
-        margin-left: 25%;
-        margin-right: 2%;
+        border-radius: 0.2rem solid;
         align-items: center;
-        /* background-color: rgb(100, 96, 96); */
-        height: 90%;
-        width: 30%;
     }
     .box{
         height: 80%;
         margin-left: 4%;
-       
         width: 20%;
     }
     .lightpink{
@@ -69,6 +72,11 @@
         
         background-color: yellow;
     }
+    .fas{
+        font-size: 1.5rem;
+        margin-left: 20%;
+        margin-right: 10%;
+    }
     
 </style>
 </head>
@@ -80,10 +88,12 @@
             <div class="lightgreen box"></div>
             <div class="yellow box"></div>
         </div>
-        
+        <div class="right">
+            <i class="fas fa-plus"></i>
+                <i class="fas fa-times"></i>
+        </div>
     </div>
-                <i class="fa fa-plus"></i>
-                <i class="fa fa-times"></i>
+                
         
     
     <div class="bottom"></div>
