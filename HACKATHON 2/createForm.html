@@ -21,19 +21,19 @@
           <p>Play, connect, create and more.</p>
           <p><strong>It's free to join and easy to use.</strong></p>
           <span id="message"></span>
-          <form class="form" >
+          <form class="form" onsubmit="event.preventDefault();">
             <div class="creator">
-                <label class="form__label" for="creator_email">Your Email <span class="form__tooltip" data-tooltip="Please enter your email address">?</span></label>
-                <input class="form__text" type="email" id="creator_email" name="creator_email">
-                <label class="form__label" for="creator_name">Your Name <span class="form__tooltip" data-tooltip="Please enter your email address">?</span></label>
-                <input class="form__text" type="text" id="creator_name" name="creator_name">
+                <label class="form__label" for="creator_email">Your Email <span class="form__tooltip" data-tooltip="Please enter your email address" >?</span></label>
+                <input class="form__text" type="email" id="creator_email" name="creator_email" required>
+                <label class="form__label" for="creator_name">Your Name <span class="form__tooltip" data-tooltip="Please enter your name" >?</span></label>
+                <input class="form__text" type="text" id="creator_name" name="creator_name" required>
             </div>
             <div class="outer">
             
             </div>
             <button type="button" id="create" class="button" style="background-color: black; color: antiquewhite;">Add</button>
              
-            <button type="submit" class="button">Sign up now</button>     
+            <button type="submit" id="submit" class="button">Sign up now</button>     
           </form>
           
         </div>
