@@ -138,3 +138,8 @@ function start() {
     
   })
 }
+
+document.querySelector('button[type="submit"]').addEventListener('click',function(){
+  alert("Thank You for your response");
+  window.location.href = "http://127.0.0.1:5500/index.html";
+})
