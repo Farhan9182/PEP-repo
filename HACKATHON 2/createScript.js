@@ -1,8 +1,6 @@
 const idx = 1;
 let db = null;
 
-
-
 let addbtn = document.getElementById('create');
 addbtn.addEventListener('click',function(){
     let sectionDiv = document.createElement('div');
@@ -51,10 +49,12 @@ submitbtn.addEventListener('click', function(){
     setTimeout(function(){
         let nameC = document.getElementById('creator_name').value;
         let emailC = document.getElementById('creator_email').value;
+        let titleC = document.getElementById('form_title').value;
         let valueArr = document.querySelectorAll('input[name="input"]');
         let optionArr = document.querySelectorAll('select[name="select"]');
         for(let i=0; i<valueArr.length; i++){
             const tupple = {
+                title: titleC,
                 name: nameC,
                 email: emailC,
                 idx: i+1,
@@ -67,7 +67,10 @@ submitbtn.addEventListener('click', function(){
             const pNotes = tx.objectStore("my_Form")
             pNotes.add(tupple);
         }
+        alert("Database created successfully");
+        window.location.href = "http://127.0.0.1:5500/index.html"
        }, 3000);
+    
     //    window.location.reload();
 })
 

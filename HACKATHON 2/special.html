@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style1.css">
     
     <title>Document</title>
+    <script defer src="main.js"></script>
     <script defer src="face-api.min.js"></script>
     <script defer src="script.js"></script>
     <script defer src="script1.js"></script>
@@ -16,42 +17,24 @@
     <div class="form-main">
         <div class="front">
             <img class="logo" src="Assets/pngaaa.com-775906.png" alt="logo">
-          <h1 class="title">Create your account</h1>
-          <p>The ultimate entertainment platform</p>
-          <p>Play, connect, create and more.</p>
-          <p><strong>It's free to join and easy to use.</strong></p>
+          <h1 class="title">Welcome to Lazy Forms</h1>
+          <p>An AI voice operated System</p>
+          <p>Command Format: <strong>Label after AI affirmation omit the input</strong></p>
+          <p>Press the button to talk to our system.</p>
+          <p><button id="activate" style="background-color: brown;cursor: pointer;">Activate...</button></p>
           <span id="message"></span>
-          <form class="form">
+          <form class="form" action="mailto:farhaankhaan930@gmail.com" method="post" enctype="text/plain">
             <div class="image-container">
               <img class="profile-image" id="profile-image">
-              <input type="file" aria-label="User-image" id="imageUpload">
+              <input type="file" aria-label="User-image" id="imageUpload" required>
             </div>
-            
-            <label class="form__label" for="email">Your Email <span class="form__tooltip" data-tooltip="Please enter your email address">?</span></label>
-            <input class="form__text" type="email" id="email" name="email">
-            <label class="form__label" for="password">Password <span class="form__tooltip" data-tooltip="Minimum 12 characters, at least one capital and one number">?</span></label>
-            <input class="form__text" type="password" id="password" name="password">
-            <label class="form__label" for="password-reenter">Re-enter password</label>
-            <input class="form__text" type="password" id="password-reenter" name="password-reenter">
-          
-            <p class="fineprint flex-center">
-              <input class="form__checkbox" type="checkbox" id="agreement" name="agreement">
-              <label for="agreement">I am 13 years of age or older AND agree to the <a href="#">terms and serivces</a>.</label>
-            </p>
-            <p>
-              <!-- <img class="recaptcha" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/recaptcha-dark.png" alt=""> -->
-              
-              
-            </p>
-            
-            
-            
-            <a href="#" class="fineprint">I already have an account</a>      
+            <div class="outer">
+
+            </div>
+            <button type="button" class="button" id="verify-button" style="background-color: darkblue; color: antiquewhite;">Validate</button>
+            <button type="submit" class="button" style="display: none;">Submit</button>
           </form>
-          <button class="button" id="verify-button" style="background-color: darkblue; color: antiquewhite;">Validate</button>
           
-          
-          <button class="button">Sign up now</button>
         </div>
         <div class="modal">
           <div class="content1">

@@ -75,9 +75,13 @@ document.getElementById('verify-button').addEventListener('click',function(){
         drawBox.draw(canvas1)
         if(text.includes(label[0])){
           alert("Matching Successful");
+          document.querySelector('button[type="submit"]').style.display = "block";
+          document.getElementById('verify-button').style.display = "none";
+          document.querySelector('.close').click();
         }
         else{
           alert("Try again");
+          document.querySelector('.close').click();
         }
       })
       image = await faceapi.bufferToImage(imageUpload.files[0])

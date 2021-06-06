@@ -339,3 +339,10 @@
   .outer > .section > button{
     vertical-align: middle;
   }
+
+  .outer > select {
+    border: #fff solid;
+    width: 20vw;
+    margin-right: 10px;
+    cursor: pointer;
+  }
