@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    
+    <title>Document</title>
+    <script defer src="face-api.min.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src="script1.js"></script>
+
+</head>
+<body>
+    <div class="form-main">
+        <div class="front">
+            <img class="logo" src="Assets/pngaaa.com-775906.png" alt="logo">
+          <h1 class="title">Create your account</h1>
+          <p>The ultimate entertainment platform</p>
+          <p>Play, connect, create and more.</p>
+          <p><strong>It's free to join and easy to use.</strong></p>
+          <span id="message"></span>
+          <form class="form">
+            <div class="image-container">
+              <img class="profile-image" id="profile-image">
+              <input type="file" aria-label="User-image" id="imageUpload">
+            </div>
+            
+            <label class="form__label" for="email">Your Email <span class="form__tooltip" data-tooltip="Please enter your email address">?</span></label>
+            <input class="form__text" type="email" id="email" name="email">
+            <label class="form__label" for="password">Password <span class="form__tooltip" data-tooltip="Minimum 12 characters, at least one capital and one number">?</span></label>
+            <input class="form__text" type="password" id="password" name="password">
+            <label class="form__label" for="password-reenter">Re-enter password</label>
+            <input class="form__text" type="password" id="password-reenter" name="password-reenter">
+          
+            <p class="fineprint flex-center">
+              <input class="form__checkbox" type="checkbox" id="agreement" name="agreement">
+              <label for="agreement">I am 13 years of age or older AND agree to the <a href="#">terms and serivces</a>.</label>
+            </p>
+            <p>
+              <!-- <img class="recaptcha" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/recaptcha-dark.png" alt=""> -->
+              
+              
+            </p>
+            
+            
+            
+            <a href="#" class="fineprint">I already have an account</a>      
+          </form>
+          <button class="button" id="verify-button" style="background-color: darkblue; color: antiquewhite;">Validate</button>
+          
+          
+          <button class="button">Sign up now</button>
+        </div>
+        <div class="modal">
+          <div class="content1">
+            <img class="uploaded-image" alt="Uploaded image">
+          </div>
+          <div class="content2">
+            <div class="close"></div>
+            <video id="video" autoplay muted></video>
+          </div>
+              
+            </div>
+        </div>
+    
+    
+    
+</body>
+</html>

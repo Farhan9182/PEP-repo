@@ -1,0 +1,341 @@
+
+
+  @import url("https://use.typekit.net/koe0wht.css");
+
+  :root {
+    --fw-1: 300;
+    --fw-2: 700;
+    --fw-3: 900;
+    
+    --fs-1: 1.125rem;
+    --fs-2: 1.25rem;
+    --fs-3: 2rem;
+    --fs-small: .75rem;
+    
+    --clr-1: #fff;
+    --clr-2: #255996;
+    --clr-3: #1b3049;
+    --clr-4: #171f29;
+    --clr-5: #1fd030;
+    
+    --clr-dark: rgba(0,0,0,.25);
+    --clr-body: rgba(255,255,255,.8);
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: motiva-sans, sans-serif; 
+    background-color: var(--clr-4);
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/steam-bg.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+    color: var(--clr-body);
+    font-size: var(--fs-1);
+    font-weight: var(--fw-1);
+    line-height: 1.6;
+  }
+  
+  p {
+    margin: 0 0 .25em;
+  }
+  
+  a {
+    color: var(--clr-1);
+  }
+  
+  a:hover {
+    color: inherit;
+  }
+  
+  strong {
+    font-weight: var(--fw-3);
+  }
+  
+  .title, .subheading {
+    color: var(--clr-1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  
+  .title {
+    font-size: var(--fs-3);
+    font-weight: var(--fw-3);
+  }
+  
+  .subheading {
+    margin-top: 0;
+    font-size: var(--fs-2);
+  }
+  
+  .fineprint {
+    font-size: var(--fs-small);
+  }
+  
+  .list--unstyled {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .list li {
+    margin-bottom: 1em;
+  }
+  
+  .button {
+    all: unset;
+    cursor: pointer;
+    display: inline-block;
+    background: var(--clr-5);
+    padding: .5em 1.75em;
+    color: rgba(0,0,0,.7);
+    font-weight: var(--fw-3);
+    transform: scale(1);
+    transition: transform ease-in-out 150;
+  }
+  
+  .button:hover {
+    transform: scale(1.1);
+  }
+  
+  .button + * {
+    margin-left: 2em;
+  }
+  
+  .logo{
+    vertical-align: middle;
+    height: 50px;
+    width: 50px;
+  }
+  
+  .flex-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  .steam-signup-form {
+    display: grid;
+    width: 960px;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 35% minmax(500px, 1fr) 3em;
+    position: relative;
+  }
+  
+  .front {
+    order: 2;
+    background-color: var(--clr-2);
+    background-image: linear-gradient(to bottom right, rgba(0,0,0,0), var(--clr-dark));
+    padding: 3rem;
+    grid-row: 1 / -1;
+    grid-column: 2 / 3;
+  }
+  
+  .back {
+    order: 1;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    padding: 3rem;
+  }
+  
+  .back::after {
+    content: '';
+    display: block;
+    background: var(--clr-3);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    grid-row: 2 / 3;
+  }
+  
+  
+  .form {
+    margin: 1.5em 0 0;
+  }
+  
+  .form__label {
+    display: flex;
+  }
+  
+  .form__text {
+    all: unset;
+    display: block;
+    margin: .25em 0 1em;
+    background: var(--clr-dark);
+    width: 100%;
+    padding: .6em;
+  }
+  
+  .form__tooltip {
+    font-size: var(--fs-small);
+    background: var(--clr-dark);
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    text-align: center;
+    align-self: center;
+    margin-left: .5em;
+    position: relative;
+  }
+  
+  .form__tooltip::after {
+    content: attr(data-tooltip);
+    display: none;
+    position: absolute;
+    padding: 1em;
+    background: var(--clr-dark);
+    bottom: 1.5em;
+    text-align: left;
+    width: 250px;
+    color: var(--clr-1);
+  }
+  
+  .form__tooltip:hover::after {
+    display: block;
+  }
+  
+  .form__checkbox {
+    margin-right: .5em;
+  }
+  
+  canvas {
+    position: absolute;
+    z-index: 10;
+  }
+
+  .image-container{
+    height: 13.4vh;
+    width: 12.5vh;
+    border: 2px solid;
+    margin-left: auto;
+  }
+  .profile-image{
+    height: 13vh;
+    width: 12vh;
+  }
+  input[type="file"]{
+    font-size: 0.5rem;
+  }
+  .modal {
+      position:fixed;
+      top:0;
+      left:0;
+      display: flex;
+      width:100%;
+      height:100vh;
+      justify-content:center;
+      align-items:center;
+      opacity:0;
+      visibility:hidden;
+      
+    }
+
+  .modal .content1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position:relative;
+      padding:10px;
+      width:50%;
+      height:50%;
+      border-radius:8px;
+      background-color:#fff;
+      box-shadow: rgba(112,128,175,0.2)0px 16px 24px 0px;
+      transform: scale(0);
+      transition: transform300ms cubic-bezier(0.57,0.21,0.69,1.25);
+    }
+  .modal .content2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    padding:10px;
+    width:50%;
+    height:50%;
+    border-radius:8px;
+    background-color:#fff;
+    box-shadow: rgba(112,128,175,0.2)0px 16px 24px 0px;
+    transform: scale(0);
+    transition: transform300ms cubic-bezier(0.57,0.21,0.69,1.25);
+  } 
+  .modal .close {
+      position:absolute;
+      top:-35px;
+      right:5px;
+      width:30px;
+      height:30px;
+      cursor:pointer;
+      border-radius:8px;
+      background-color:#7080af;
+      clip-path: polygon(0 10%,10% 0,50% 40%,89% 0,100% 10%,60% 50%,100% 90%,90% 100%,50% 60%,10% 100%,0 89%,40% 50%);
+    }
+        
+  .modal.open {
+      opacity:1;
+      visibility:visible;
+    }
+
+  .modal.open .content1 {
+    transform: scale(1);
+  }
+  
+  .modal.open .content2 {
+    transform: scale(1);
+  }
+
+  .front.blur {
+      filter: blur(5px);
+    }
+  
+  video{
+    margin: 5px;
+    object-fit: cover;
+    height: 80%;
+    width: 50%;
+  }
+
+  .uploaded-image{
+    margin: 5px;
+    object-fit: cover;
+    height: 80%;
+    width: 50%;
+  }
+
+  .creator{
+    font-size: 0.6rem;
+    border-bottom: #fff solid;
+    width: 30vw; 
+    padding-right: 50px;
+  }
+
+  .section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+  .outer > .section > select {
+    border: #fff solid;
+    width: 20vw;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .outer > .section > input{
+    margin-right: 5px;
+  } 
+
+  .outer > .section > button{
+    vertical-align: middle;
+  }
