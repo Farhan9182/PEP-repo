@@ -10,6 +10,7 @@ Solution: Face recognition using face api not only to prove that we are human bu
 Tech Stack used:
 HTML, CSS, JAVASCRIPT
 API: Canvas api, Face api, SpeechRecognition api
+
 Backend: IndexedDB
 *Implemented neon buttons inspired by Kevin Powell (legend)
 
